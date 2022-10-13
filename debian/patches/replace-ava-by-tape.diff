@@ -1,0 +1,29 @@
+Description: replace ava by tape in test
+Author: Xavier Guimard <yadd@debian.org>
+Forwarded: not-needed
+Last-Update: 2020-05-13
+
+--- a/test.js
++++ b/test.js
+@@ -1,5 +1,5 @@
+-import test from 'ava';
+-import detectNewline from '.';
++const test = require('tape');
++const detectNewline = require('.');
+ 
+ test('main', t => {
+ 	t.is(detectNewline('foo\r\nbar\r\nbaz\n\n\n'), '\n');
+@@ -7,6 +7,7 @@
+ 	t.is(detectNewline('foo\nbar\nbaz\r\n'), '\n');
+ 	t.is(detectNewline('foo\nbar\r\n'), '\n');
+ 	t.is(detectNewline('foo'), undefined);
++    t.end();
+ });
+ 
+ test('graceful', t => {
+@@ -18,4 +19,5 @@
+ 	t.is(detectNewline.graceful(0), '\n');
+ 	t.is(detectNewline.graceful(true), '\n');
+ 	t.is(detectNewline.graceful(['foo', 'bar']), '\n');
++    t.end();
+ });

@@ -1,0 +1,21 @@
+Source: node-detect-newline
+Section: javascript
+Priority: optional
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Sruthi Chandran <srud@disroot.org>
+Build-Depends: debhelper-compat (= 12)
+ , node-tape <!nocheck>
+ , pkg-js-tools (>= 0.9.20~)
+Standards-Version: 4.5.0
+Vcs-Browser: https://salsa.debian.org/js-team/node-detect-newline
+Vcs-Git: https://salsa.debian.org/js-team/node-detect-newline.git
+Homepage: https://github.com/sindresorhus/detect-newline
+Testsuite: autopkgtest-pkg-nodejs
+Rules-Requires-Root: no
+
+Package: node-detect-newline
+Architecture: all
+Depends: ${misc:Depends}
+ , nodejs
+Description: Detect the dominant newline character of a string
+ Node.js is an event-based server-side JavaScript engine.
